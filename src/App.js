@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// pages
+import Home from './pages/home'
+import Login from './pages/login'
+import Register from './pages/register'
+import Dashboard from './pages/dashboard'
+
+//styled component
+import {StyledContainer} from './component/style';
+
+import{
+  BrowserRouter as Router,
+  Routes,
+  Route
+}from 'react-router-dom';
+
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> seas
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+    <Router>
+    <StyledContainer>
+      <Routes>
+      <Route path="/" element={<Home/>} />
+      <Route path="/register" element={<Register/>} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/dashboard" element={<Dashboard/>} />
+      </Routes>      
+    </StyledContainer>
+    </Router>
   );
 }
 
