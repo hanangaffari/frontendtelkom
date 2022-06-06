@@ -14,8 +14,6 @@ import pattern from './../asset/pattern.svg'
 
 import{Link} from 'react-router-dom';
 import { icons } from 'react-icons';
-import { type } from '@testing-library/user-event/dist/type';
-
 
 
 
