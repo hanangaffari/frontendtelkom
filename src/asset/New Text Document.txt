@@ -1,0 +1,4 @@
+wave1---
+background: url(${wavesvg})no-repeat 61% 100%;
+background-size: 640%;
+wave2----
