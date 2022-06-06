@@ -18,7 +18,7 @@ import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
 import {FiMail, FiLock} from 'react-icons/fi';
 import * as Yup from 'yup';
-import Loader from 'react-loader-spinner';
+import {RotatingLines} from 'react-loader-spinner';
 //auth
 import { connect } from 'react-redux';
 import { loginUser } from '../auth/actions/userAction';
@@ -77,8 +77,8 @@ const Login = ({loginUser}) => {
                                 daftar
                 </StyledRegBtn>
                 {isSubmitting && (
-                    <Loader
-                    type="ThreeDots"
+                    <RotatingLines
+                    
                     color= {colors.red}
                     height={49}
                     width={100}

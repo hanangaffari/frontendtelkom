@@ -20,7 +20,7 @@ import { TextInput } from '../component/FormLib';
 import {FiMail, FiLock} from 'react-icons/fi';
 import {AiOutlinePlusSquare} from 'react-icons/ai';
 import * as Yup from 'yup';
-import Loader from 'react-loader-spinner';
+import {RotatingLines} from 'react-loader-spinner';
 
 //auth
 import { connect } from 'react-redux';
@@ -194,8 +194,8 @@ const Register = ({regUser}) => {
                                </ExtraText> 
                                                         
                 {isSubmitting && (
-                    <Loader
-                    type="ThreeDots"
+                    <RotatingLines
+                 
                     color= {colors.red}
                     height={49}
                     width={100}
