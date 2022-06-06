@@ -8,9 +8,26 @@ import {
     colors
 } from "./../component/style";
 
+//import {componentDidMount} from 'react'
+import React, { Component } from "react";
+
+import  {authFirebase}  from "../config/firebase";
+
 //logo
 import Logo from "./../asset/favicon.png"
+
+
+
 const Dashboard = () => {
+    //componentDidMount = () => {
+        authFirebase.onAuthStateChanged((user) => {
+            if(!user){
+                //this.props.history.push('/login');
+                //console.log('sdsds');
+                window.location.href = '/login';
+            }
+        })
+    //}
     return(
         <div>
             <div style={{
