@@ -25,6 +25,7 @@ const Dashboard = () => {
                 //this.props.history.push('/login');
                 //console.log('sdsds');
                 window.location.href = '/login';
+                //sadsadasdsasadads
             }
         })
     //}
