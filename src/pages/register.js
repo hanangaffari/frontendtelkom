@@ -28,9 +28,14 @@ import { regUser } from '../auth/actions/userAction';
 import {useNavigate} from "react-router-dom";
 
 
+
 const Register = ({regUser}) => {
     const history = useNavigate();
+    /*handleSubmit = (e) => {
+        e.preventDefault();
 
+        const {user,password} = this.state
+    }*/
     return(
         
         <div style={{padding:"5% 0px 5% 15%"}}>            

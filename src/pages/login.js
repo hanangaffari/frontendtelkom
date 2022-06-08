@@ -24,7 +24,7 @@ import { connect } from 'react-redux';
 import { loginUser } from '../auth/actions/userAction';
 import {useNavigate} from "react-router-dom";
 const Login = ({loginUser}) => {
-    const history = useNavigate();
+    const navigate = useNavigate();
     return(
         
         <div style={{padding:"5% 0px 0px 15%"}}>            
@@ -35,12 +35,12 @@ const Login = ({loginUser}) => {
                 
                 <Formik 
                 initialValues={{
-                    user:"",
+                    email:"",
                     password:"",
                 }}
                 validationSchema={
                     Yup.object({
-                        user: Yup.string()
+                        email: Yup.string()
                         .required("required"),
                         password : Yup.string().min(8, "password is too short").max(30,"password is too long")
                         .required("required"),
@@ -48,16 +48,16 @@ const Login = ({loginUser}) => {
                 }
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
                     console.log(values);
-                    loginUser(values,history,setFieldError,setSubmitting)
+                    loginUser(values,navigate,setFieldError,setSubmitting)
                 }}
                 >
                     {({isSubmitting}) => (
                         <Form>
                            <TextInput 
-                           name="user" 
-                           type="text" 
-                           label="username"
-                           placeholder="username"
+                           name="email" 
+                           type="email" 
+                           label="email"
+                           placeholder="email"
                            icon={<FiMail/>}/>
 
                            <TextInput
