@@ -22,9 +22,13 @@ import {RotatingLines} from 'react-loader-spinner';
 //auth
 import { connect } from 'react-redux';
 import { loginUser } from '../auth/actions/userAction';
-import {useNavigate} from "react-router-dom";
+import {useNavigate,useLocation} from "react-router-dom";
+import { useState } from 'react';
 const Login = ({loginUser}) => {
     const navigate = useNavigate();
+
+
+
     return(
         
         <div style={{padding:"5% 0px 0px 15%"}}>            
@@ -35,35 +39,36 @@ const Login = ({loginUser}) => {
                 
                 <Formik 
                 initialValues={{
-                    email:"",
-                    password:"",
+                    Username:"",
+                    Password:"",
                 }}
                 validationSchema={
                     Yup.object({
-                        email: Yup.string()
+                        Username: Yup.string()
                         .required("required"),
-                        password : Yup.string().min(8, "password is too short").max(30,"password is too long")
+                        Password : Yup.string().min(8, "password is too short").max(30,"password is too long")
                         .required("required"),
                     })
                 }
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
                     console.log(values);
                     loginUser(values,navigate,setFieldError,setSubmitting)
+
                 }}
                 >
                     {({isSubmitting}) => (
                         <Form>
                            <TextInput 
-                           name="email" 
-                           type="email" 
-                           label="email"
-                           placeholder="email"
+                           name="Username" 
+                           type="text" 
+                           label="Username"
+                           placeholder="Username"
                            icon={<FiMail/>}/>
 
                            <TextInput
-                           name="password" 
+                           name="Password" 
                            type="password" 
-                           label="password"
+                           label="Password"
                            placeholder="password"
                            icon={<FiLock/>}/>                           
 

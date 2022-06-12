@@ -18,6 +18,17 @@ root.render(
     
   </React.StrictMode>
 );
+/*<React.StrictMode>
+    <BrowserRouter>
+    <AuthProvider>
+      <Routes>
+        <Route path="/*" element={<App/>}/>
+    <App />
+    </Routes>
+    </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+  */
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

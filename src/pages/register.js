@@ -30,7 +30,7 @@ import {useNavigate} from "react-router-dom";
 
 
 const Register = ({regUser}) => {
-    const history = useNavigate();
+    const navigate = useNavigate();
     /*handleSubmit = (e) => {
         e.preventDefault();
 
@@ -49,25 +49,25 @@ const Register = ({regUser}) => {
                 enableReinitialize
                 
                 initialValues={{
-                    user:"",
-                    password:"",
-                    foto:"",
+                    NamaMahasiswa:"",
+                    Password:"",
+                    FotoMahasiswa:"",
                     repeatpassword:"",
-                    nim:"",
-                    username:"",
+                    NIM:"",
+                    Username:"",
                 }}
                 validationSchema={
                     Yup.object({
-                        user: Yup.string()
+                        NamaMahasiswa: Yup.string()
                         .required("required"),
-                        password : Yup.string().min(8, "password is too short").max(30,"password is too long")
+                        Username: Yup.string()
                         .required("required"),
-                        nim: Yup.string().required("Required"),
+                        Password : Yup.string().min(8, "password is too short").max(30,"password is too long")
+                        .required("required"),
+                        NIM: Yup.number().required("Required"),
                         repeatpassword: Yup.string().required("Required").
-                        oneOf([Yup.ref("password")],"Password tidak sama"),
-                        foto: Yup.mixed().required(),
-                        username: Yup.mixed().required()
-                        
+                        oneOf([Yup.ref("Password")],"Password tidak sama"),
+                        FotoMahasiswa: Yup.mixed().required()                                                
                     })
                 }
 
@@ -77,14 +77,14 @@ const Register = ({regUser}) => {
                 
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
                     console.log(values);
-                    regUser(values,history,setFieldError,setSubmitting)
+                    regUser(values,navigate,setFieldError,setSubmitting)
                 }}
                 >
                     {({isSubmitting}) => (
                         <Form   onChange={() => {
                             const filez =  document.getElementById("foto2").files[0];
 
-                            const  fileType = filez['type'];
+                            //const  fileType = filez['type'];
 
                             const validImageTypes = ['image/jpeg','image/jpg', 'image/png'];
 
@@ -96,7 +96,7 @@ const Register = ({regUser}) => {
                         
                                 filereader.onload = function(event){
                                     
-
+                                    /*
                                     if (!validImageTypes.includes(fileType)) {
 
                                         document.getElementById("preview").setAttribute('src', '');
@@ -105,8 +105,9 @@ const Register = ({regUser}) => {
                                         document.getElementById("bigimg").style.visibility = "hidden";
                                         document.getElementById("imgs").style.visibility = "hidden";
                                     }
+                                    */
 
-                                    else if (filez.size > 500 * 1024) {
+                                     if (filez.size > 500 * 1024) {
 
                                         document.getElementById("preview").setAttribute('src', '');
                                         document.getElementById("foto2").form.reset();
@@ -140,14 +141,14 @@ const Register = ({regUser}) => {
                             }}>
                                unsuported image type</ErrorMsg>
                            <TextInput 
-                           name="user" 
+                           name="NamaMahasiswa" 
                            type="text" 
                            label="nama mahasiswa"
                            placeholder="nama mahasiswa"
                            icon={<FiMail/>}/>
                            
                            <TextInput 
-                           name="nim" 
+                           name="NIM" 
                            type="number" 
                            label="Nomor Induk Mahasiswa"
                            placeholder="nomor induk mahasiswa   "
@@ -155,7 +156,7 @@ const Register = ({regUser}) => {
                            
                            
                                 <TextInput
-                                name="foto" 
+                                name="FotoMahasiswa" 
                                 id="foto2"
                                 type="file" 
                                 label="pas foto"
@@ -169,14 +170,14 @@ const Register = ({regUser}) => {
                     
 
                             <TextInput 
-                           name="username" 
+                           name="Username" 
                            type="text" 
                            label="username"
                            placeholder="username"
                            icon={<FiMail/>}/>
 
                            <TextInput
-                           name="password" 
+                           name="Password" 
                            type="password" 
                            label="password"
                            placeholder="password"

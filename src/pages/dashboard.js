@@ -5,7 +5,8 @@ import {
     StyledButton,
     ButtonGroup,
     StyledForm,
-    colors
+    colors,
+    ExtraText
 } from "./../component/style";
 
 //import {componentDidMount} from 'react'
@@ -16,17 +17,15 @@ import  {authFirebase}  from "../config/firebase";
 //logo
 import Logo from "./../asset/favicon.png"
 
+//redux connect
+import { connect } from 'react-redux';
+import { logoutUser } from "../auth/actions/userAction";
+import {useNavigate} from "react-router-dom";
 
 
-const Dashboard = () => {
-        /*authFirebase.onAuthStateChanged((user) => {
-            if(!user){
-                //this.props.history.push('/login');
-                //console.log('sdsds');
-                window.location.href = '/login';
-                //sadsadasdsasadads
-            }
-        })*/ 
+const Dashboard = ({logoutUser,user}) => {        
+    const navigate = useNavigate();
+    
         return(
             <div>
                 <div style={{
@@ -42,17 +41,24 @@ const Dashboard = () => {
                     <Avatar image={Logo}></Avatar>
                 </div>
                 <StyledForm bg={colors.dark2}>
-                <StyledTitle size={65}>Telkom University</StyledTitle>
+                <StyledTitle size={65}>test</StyledTitle>
                 <StyledTitle2 size={27}>
-                    silahkan masuk
+                   {user.Username}                   
                 </StyledTitle2>
+                <StyledTitle2>{user.NamaMahasiswa}</StyledTitle2>
+                <StyledTitle2>{user.NIM}</StyledTitle2>
+                <img src={user.FotoMahasiswa}></img>
+
                 <ButtonGroup>
-                <StyledButton to="/">Logout</StyledButton>
+                <StyledButton to="#" onClick={() => logoutUser(navigate)}>Logout</StyledButton>
                 </ButtonGroup>
                 </StyledForm>
                 
             </div>
             );   
 }
+const mapStateToProps = ({session}) => ({
+user: session.user
+})
 
-export default Dashboard;
+export default connect(mapStateToProps,{logoutUser})(Dashboard);
