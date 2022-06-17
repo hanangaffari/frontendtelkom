@@ -15,7 +15,7 @@ import Logo from './../asset/favicon.png';
 
 export const TextInput = ({onChange, icon, ...props}) => {
     const [field, meta] = useField(props);
-    
+    const {value, ...rest} = field;
     const [show, setShow] = useState(false);
     
     
@@ -33,7 +33,7 @@ export const TextInput = ({onChange, icon, ...props}) => {
                     <StyledInput 
                     invalid={meta.touched && meta.error}
                     {...field} 
-                    {...props}
+                    {...props}            
                     type={show ? "text" : "password"}
                     />
 

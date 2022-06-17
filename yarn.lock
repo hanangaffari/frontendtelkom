@@ -2771,6 +2771,11 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
+Buffer@^0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/Buffer/-/Buffer-0.0.0.tgz#82cf8e986a2109ff6d1d6f1c436e47d07127aea4"
+  integrity sha512-+zdncl8lI5TCkARStn9F1BwcuJYofYmD0oEHe5FNfCvGfeDJwf6+dSikCdQN6BMXXmHMhNNUagBN367WST1AIQ==
+
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.6.tgz#41b80f2c871d19686216b82309231cfd3cb3d291"
@@ -6859,6 +6864,11 @@ node-releases@^2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.5.tgz#280ed5bc3eba0d96ce44897d8aee478bfb3d9666"
   integrity sha512-U9h1NLROZTq9uE1SNffn6WuPDg8icmi3ns4rEl/oTfIle4iLjTliCzgTsbaIFMq/Xn078/lfY/BL0GWZ+psK4Q==
+
+nodejs-base64-converter@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/nodejs-base64-converter/-/nodejs-base64-converter-1.0.5.tgz#be211c1a5c0e05187b4f899683165175a35a3c2e"
+  integrity sha512-6WBDE/pWg944rvdrjw5XyhEl2mSITD25xSF38s0U0QffCniuQy0T4qY3E3K77cQjJxnvkLpsEED/PnFrj63JhQ==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"

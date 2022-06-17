@@ -21,10 +21,10 @@ import * as Yup from 'yup';
 import {RotatingLines} from 'react-loader-spinner';
 //auth
 import { connect } from 'react-redux';
-import { loginUser } from '../auth/actions/userAction';
+import { LoginUser } from '../auth/actions/userAction';
 import {useNavigate,useLocation} from "react-router-dom";
 import { useState } from 'react';
-const Login = ({loginUser}) => {
+const Login = ({LoginUser}) => {
     const navigate = useNavigate();
 
 
@@ -52,7 +52,7 @@ const Login = ({loginUser}) => {
                 }
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
                     console.log(values);
-                    loginUser(values,navigate,setFieldError,setSubmitting)
+                    LoginUser(values,navigate,setFieldError,setSubmitting)
 
                 }}
                 >
@@ -109,4 +109,4 @@ const Login = ({loginUser}) => {
     );
 }
 
-export default connect(null,{loginUser})(Login);
+export default connect(null,{LoginUser})(Login);

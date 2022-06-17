@@ -2,10 +2,12 @@ import axios from 'axios';
 
 import { sessionService } from 'redux-react-session';
 
-import AuthRoute from '../../component/AuthRoute';
+import { useState } from 'react';
 
+import { Buffer } from 'buffer';
 //export var loggedin = (false);
-export const loginUser = (credentials,navigate,setFieldError,setSubmitting) => {
+
+export const LoginUser = (credentials,navigate,setFieldError,setSubmitting) => {
 //make checks
 
 return() => { 
@@ -34,8 +36,8 @@ const {message} = data;
     }else if(data.status === "SUCCESS"){
         const userData = data.data[0];
 
-        const token = userData._id;
-        
+        const token = userData._id;        
+                
         sessionService.saveSession(token).then(() => {
             sessionService.saveUser(userData).then(() => {
                 
@@ -54,6 +56,7 @@ const {message} = data;
 export const regUser = (credentials,navigate,setFieldError,setSubmitting
 ) => {
      return (dispatch) => {
+        console.log(credentials);
     axios.post("https://secure-coast-04239.herokuapp.com/user/signup",
 
     credentials,{
@@ -77,7 +80,7 @@ export const regUser = (credentials,navigate,setFieldError,setSubmitting
 
         //loginUser({Username,Password},navigate,setFieldError,setSubmitting)
         dispatch(
-            loginUser({Username,Password},navigate,setFieldError,setSubmitting)
+            LoginUser({Username,Password},navigate,setFieldError,setSubmitting)
         ); 
     }
 }).catch((err) => console.log(err.message));

@@ -228,3 +228,7 @@ export const StyledIcon = styled.p `
  ${(props) => props.right && `right: 15px;`}
  ${(props) => !props.right && `left: 15px;`}
  `;
+
+ export const Image = styled.img `
+ 
+ `;

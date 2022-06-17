@@ -26,16 +26,13 @@ import {RotatingLines} from 'react-loader-spinner';
 import { connect } from 'react-redux';
 import { regUser } from '../auth/actions/userAction';
 import {useNavigate} from "react-router-dom";
-
+import { Buffer } from 'buffer';
 
 
 const Register = ({regUser}) => {
     const navigate = useNavigate();
-    /*handleSubmit = (e) => {
-        e.preventDefault();
-
-        const {user,password} = this.state
-    }*/
+    
+    
     return(
         
         <div style={{padding:"5% 0px 5% 15%"}}>            
@@ -44,7 +41,7 @@ const Register = ({regUser}) => {
                 <Avatar image={Logo}></Avatar>
                 <StyledTitle color={colors.theme} size={30}>
                     daftar</StyledTitle>
-                    
+    
                 <Formik 
                 enableReinitialize
                 
@@ -55,6 +52,7 @@ const Register = ({regUser}) => {
                     repeatpassword:"",
                     NIM:"",
                     Username:"",
+                    Foto64:"",
                 }}
                 validationSchema={
                     Yup.object({
@@ -67,7 +65,8 @@ const Register = ({regUser}) => {
                         NIM: Yup.number().required("Required"),
                         repeatpassword: Yup.string().required("Required").
                         oneOf([Yup.ref("Password")],"Password tidak sama"),
-                        FotoMahasiswa: Yup.mixed().required()                                                
+                        FotoMahasiswa: Yup.mixed().required(),
+                        Foto64 : Yup.string(),                       
                     })
                 }
 
@@ -76,14 +75,17 @@ const Register = ({regUser}) => {
 
                 
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
+                    const a = document.getElementById("preview").getAttribute("src");
+                    values.Foto64=a;
                     console.log(values);
                     regUser(values,navigate,setFieldError,setSubmitting)
                 }}
                 >
                     {({isSubmitting}) => (
                         <Form   onChange={() => {
+                            
                             const filez =  document.getElementById("foto2").files[0];
-
+                            
                             //const  fileType = filez['type'];
 
                             const validImageTypes = ['image/jpeg','image/jpg', 'image/png'];
@@ -93,9 +95,10 @@ const Register = ({regUser}) => {
 
                             if(file. length > 0 ){
                                 var filereader = new FileReader();
-                        
+                                
+
                                 filereader.onload = function(event){
-                                    
+                                    const shee = event.target.result;
                                     /*
                                     if (!validImageTypes.includes(fileType)) {
 
@@ -116,14 +119,20 @@ const Register = ({regUser}) => {
                                         document.getElementById("imgs").style.visibility = "hidden";
                                     }
                                     else{
+                                        
+                                        document.querySelector('input[name="Foto64"]').value = shee;                                                                      
                                         document.getElementById("preview").setAttribute("src",event.target.result);
+                                        
                                         document.getElementById("bigimg").style.visibility = "hidden";
                                         document.getElementById("unsupimg").style.visibility = "hidden";
                                         document.getElementById("imgs").style.visibility = "visible";
+                                        
+                                        
                                     }
                                     
                                 };
-                                filereader.readAsDataURL(file[0]);                                                                                            
+                                filereader.readAsDataURL(file[0]);  
+                                                                                                                      
                             }  
 
                             
@@ -132,6 +141,7 @@ const Register = ({regUser}) => {
                         }
                         
                        }    >
+                        
                            <ErrorMsg id='bigimg' style={{position:"absolute",marginTop:"25%",marginLeft:"15%",zIndex:"1",
                                 visibility:"hidden",fontSize:"80%"
                             }}>
@@ -146,7 +156,17 @@ const Register = ({regUser}) => {
                            label="nama mahasiswa"
                            placeholder="nama mahasiswa"
                            icon={<FiMail/>}/>
+
+                            <div style={{position:"absolute",marginLeft:"25rem"}}>
+                            <TextInput 
+                           name="Foto64" 
+                           type="text" 
+                           label="nama mahasiswa"
+                           placeholder="nama mahasiswa"
                            
+                           />
+                           </div>
+
                            <TextInput 
                            name="NIM" 
                            type="number" 
@@ -163,12 +183,13 @@ const Register = ({regUser}) => {
                                 accept="image/*"                                                                                      
                                 icon={<AiOutlinePlusSquare style={{pointerEvents:"none"}}/>}
                                 style={{height:"100%"}}
+                              
                                 /> 
                                 <div id='imgs' style={{backgroundColor:"#485563",padding:"2%",visibility:"hidden"}}>
                                 <img id="preview" style={{width:"50%"}}/>                                                                                          
                                 </div>                    
                     
-
+                            
                             <TextInput 
                            name="Username" 
                            type="text" 

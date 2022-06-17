@@ -6,13 +6,11 @@ import {
     ButtonGroup,
     StyledForm,
     colors,
-    ExtraText
+    Image
 } from "./../component/style";
 
 //import {componentDidMount} from 'react'
-import React, { Component } from "react";
-
-import  {authFirebase}  from "../config/firebase";
+import React from "react";
 
 //logo
 import Logo from "./../asset/favicon.png"
@@ -23,10 +21,18 @@ import { logoutUser } from "../auth/actions/userAction";
 import {useNavigate} from "react-router-dom";
 
 
+//new Buffer.from("anything", "base64");
+
 const Dashboard = ({logoutUser,user}) => {        
     const navigate = useNavigate();
+    const userProfileImage = user.Foto64;
     
-        return(
+
+    //console.log(Buffer.from(userProfileImage).toString('base64'));
+    
+    //const img = new Buffer.from(userProfileImage).toString("base64")
+   
+    return(
             <div>
                 <div style={{
                     
@@ -47,9 +53,8 @@ const Dashboard = ({logoutUser,user}) => {
                 </StyledTitle2>
                 <StyledTitle2>{user.NamaMahasiswa}</StyledTitle2>
                 <StyledTitle2>{user.NIM}</StyledTitle2>
-                <img src={user.FotoMahasiswa}></img>
-
-                <ButtonGroup>
+                <Image src={userProfileImage}/>
+             <ButtonGroup>
                 <StyledButton to="#" onClick={() => logoutUser(navigate)}>Logout</StyledButton>
                 </ButtonGroup>
                 </StyledForm>
