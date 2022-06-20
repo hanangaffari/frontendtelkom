@@ -19,6 +19,7 @@ credentials,{
     headers: {
         "Content-Type" : "application/json"
     }
+    
 }
 ).then((response)=> {
     const {data} = response;
@@ -58,8 +59,9 @@ export const regUser = (credentials,navigate,setFieldError,setSubmitting
      return (dispatch) => {
         console.log(credentials);
     axios.post("https://secure-coast-04239.herokuapp.com/user/signup",
-
-    credentials,{
+    
+    credentials,
+    {
     headers: {
         "Content-Type" : "application/json"
     }

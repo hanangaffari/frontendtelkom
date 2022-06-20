@@ -5,8 +5,7 @@ import Logo from "./../asset/favicon.png"
 const home = () => {
     return(
         <div>
-            <div style={{
-                position: "absolute",
+            <div style={{               
                 top:0,
                 left:0,
                 backgroundColor: "transparent",

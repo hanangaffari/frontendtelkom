@@ -38,8 +38,7 @@ const Dashboard = ({logoutUser,user}) => {
                     
                     top:0,
                     left:0,
-                    backgroundColor: "transparent",
-                    width:"100%",  
+                    backgroundColor: "transparent",                    
                     padding:"15px",              
                     display: "flex",
                     justifyContent:"flex-start"
@@ -53,7 +52,7 @@ const Dashboard = ({logoutUser,user}) => {
                 </StyledTitle2>
                 <StyledTitle2>{user.NamaMahasiswa}</StyledTitle2>
                 <StyledTitle2>{user.NIM}</StyledTitle2>
-                <Image src={userProfileImage}/>
+                <Image src={userProfileImage} style={{width:"20%"}}/>
              <ButtonGroup>
                 <StyledButton to="#" onClick={() => logoutUser(navigate)}>Logout</StyledButton>
                 </ButtonGroup>

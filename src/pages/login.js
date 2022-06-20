@@ -31,7 +31,7 @@ const Login = ({LoginUser}) => {
 
     return(
         
-        <div style={{padding:"5% 0px 0px 15%"}}>            
+        <div style={{flex:"1",padding:"5% 0% 0% 15%"}}>            
             <Bgr>
             <StyledForm style={{width:"100%"}}>
                 <Avatar image={Logo}></Avatar>
@@ -74,7 +74,8 @@ const Login = ({LoginUser}) => {
 
                            <ButtonGroup>
                                {!isSubmitting &&<StyledFormBtn 
-                                 type='submit'>
+                                 type='submit'
+                                 >
                                    Login
                                </StyledFormBtn> }
                                <StyledRegBtn to="/register"
@@ -98,7 +99,8 @@ const Login = ({LoginUser}) => {
                 
             </StyledForm>
             <StyledFormda>            
-                <ExtraText> mahasiswa baru ?</ExtraText>
+                <ExtraText style={{fontSize:"140%",marginLeft:"-10%",marginTop:"40%",fontWeight:"bolder"}}>
+                     mahasiswa baru ?</ExtraText>
                 <ButtonGroup>
                                
                            </ButtonGroup>

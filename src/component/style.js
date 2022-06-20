@@ -10,6 +10,9 @@ import wavesvg2 from './../asset/wave3.svg';
 
 import pattern from './../asset/pattern.svg'
 
+import tile from './../asset/tile.png';
+import tile2 from './../asset/tile2.png';
+
 
 
 import{Link} from 'react-router-dom';
@@ -46,17 +49,17 @@ export const StyledContainer = styled.div`
 
  export const StyledForm = styled.div`
     background-color: ${props => props.bg ||colors.light1};        
-    padding: 50px 40px;
+    padding: 6% 4%;
 `;
 
 export const Bgr = styled.div`
-    width:78%;
-    height:40rem;
-    margin: 0px 20px ;
+    width:80%;
+    min-height:40rem;
+    margin: 2% 0% ;
     align-self: normal;
     display:flex;
-    background: url(${pattern})3% -7%;
-    background-size:160%;
+    background: url(${tile2})repeat 100% 0%;
+    background-size:38% 100%;
 `;
 
  export const StyledFormda = styled.div`
@@ -65,7 +68,7 @@ export const Bgr = styled.div`
     background-size: 140%;
     text-align:center;
     width: 70%;
-    height:500px;
+    min-height:500px;
     float:right;
 `;
 
@@ -126,8 +129,8 @@ export const Bgr = styled.div`
 //input
 export const StyledInput = styled.input `
     width: 90%;
-    padding:25px;
-    padding-left: 50px;
+    padding:25px 0%;
+    padding-left: 10%;
     font-size: 17px
     letter-spacing: 1px;
     outline: none;
@@ -135,7 +138,7 @@ export const StyledInput = styled.input `
     background-color: ${colors.light2};
     border:0;
     display: block;
-    margin 5px auto 10px auto;
+    margin 2% auto 2% auto;
     transition: ease-in-out 0.3s;
 
     ${(props) => props.invalid && `background-color: ${colors.red}; color:${colors.primary};`}
@@ -158,9 +161,9 @@ export const StyledLabel = styled.p`
 
 export const StyledFormBtn = styled.button `    
     width: 60%;
-    padding: 8px;
+    padding: 2%;
     background-color: transparent;
-    font-size: 26px;
+    font-size: 180%;
     border: 2px solid ${colors.red};
     border-radius: 30px;
     color: ${colors.theme};
@@ -174,9 +177,9 @@ export const StyledFormBtn = styled.button `
 
 export const StyledRegBtn = styled(Link) `    
 width: 15%;
-padding: 8px;
+padding: 0.7%;
 background-color: transparent;
-font-size: 26px;
+font-size: 180%;
 border: 2px solid ${colors.light1};
 border-radius: 30px;
 color: ${colors.primary};
@@ -202,7 +205,6 @@ text-align: left;
 
 export const ExtraText = styled.p`
 font-size: ${(props) => props.size}px;
-position:absolute;
 margin-top:5%;
 
 `;

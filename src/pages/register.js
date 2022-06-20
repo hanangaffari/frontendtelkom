@@ -35,8 +35,8 @@ const Register = ({regUser}) => {
     
     return(
         
-        <div style={{padding:"5% 0px 5% 15%"}}>            
-            <Bgr style={{width:"50%",marginLeft:"20%",height:"100%"}}>
+        <div style={{padding:"5% 0px 5% 0%"}}>            
+            <Bgr style={{width:"50%",marginLeft:"25%",height:"100%"}}>
             <StyledForm style={{width:"100%",padding:"10%"}}>
                 <Avatar image={Logo}></Avatar>
                 <StyledTitle color={colors.theme} size={30}>
@@ -57,12 +57,17 @@ const Register = ({regUser}) => {
                 validationSchema={
                     Yup.object({
                         NamaMahasiswa: Yup.string()
-                        .required("required"),
+                        .required("required").max(30).matches(/^(?=.*[a-z])/, 'Must contain at least one lowercase character')
+                        .matches(/^(?=.*[A-Z])/, 'Must contain at least one uppercase character'),
                         Username: Yup.string()
-                        .required("required"),
-                        Password : Yup.string().min(8, "password is too short").max(30,"password is too long")
-                        .required("required"),
-                        NIM: Yup.number().required("Required"),
+                        .required("required").matches(/^[a-z\s]+$/, "Only lowercase are allowed for this field "),
+                        Password : Yup.string().min(8, "password is too short")
+                        .required("required")
+                        .matches(/^(?=.*[a-z])/, 'Must contain at least one lowercase character')
+                        .matches(/^(?=.*[A-Z])/, 'Must contain at least one uppercase character')
+                        .matches(/^(?=.*[0-9])/, 'Must contain at least one number')
+                        .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Must contain at least one special character'),
+                        NIM: Yup.string().required("Required").max(10),
                         repeatpassword: Yup.string().required("Required").
                         oneOf([Yup.ref("Password")],"Password tidak sama"),
                         FotoMahasiswa: Yup.mixed().required(),
@@ -78,6 +83,7 @@ const Register = ({regUser}) => {
                     const a = document.getElementById("preview").getAttribute("src");
                     values.Foto64=a;
                     console.log(values);
+                    console.log(values.Foto64);                    
                     regUser(values,navigate,setFieldError,setSubmitting)
                 }}
                 >
@@ -85,43 +91,44 @@ const Register = ({regUser}) => {
                         <Form   onChange={() => {
                             
                             const filez =  document.getElementById("foto2").files[0];
-                            
-                            //const  fileType = filez['type'];
-
-                            const validImageTypes = ['image/jpeg','image/jpg', 'image/png'];
-
+                                                                                
+                            const validImageTypes = ['image/jpeg','image/jpg', 'image/png'];                            
 
                             var file = document.getElementById("foto2").files;
 
                             if(file. length > 0 ){
                                 var filereader = new FileReader();
                                 
+                                
 
                                 filereader.onload = function(event){
                                     const shee = event.target.result;
-                                    /*
-                                    if (!validImageTypes.includes(fileType)) {
+                                    
+                                    const filetype = filez.type;
+                                    
+                                    if (!validImageTypes.includes(filetype)) {
 
                                         document.getElementById("preview").setAttribute('src', '');
                                         document.getElementById("foto2").form.reset();
                                         document.getElementById("unsupimg").style.visibility = "visible";
                                         document.getElementById("bigimg").style.visibility = "hidden";
                                         document.getElementById("imgs").style.visibility = "hidden";
+                                        console.log("gak support ext");
                                     }
-                                    */
+                                    
 
-                                     if (filez.size > 500 * 1024) {
+                                     else if (filez.size > 500 * 1024) {
 
                                         document.getElementById("preview").setAttribute('src', '');
                                         document.getElementById("foto2").form.reset();
                                         document.getElementById("bigimg").style.visibility = "visible";
                                         document.getElementById("unsupimg").style.visibility = "hidden";
                                         document.getElementById("imgs").style.visibility = "hidden";
+                                        console.log("gak support size");
                                     }
                                     else{
-                                        
-                                        document.querySelector('input[name="Foto64"]').value = shee;                                                                      
-                                        document.getElementById("preview").setAttribute("src",event.target.result);
+                                                                                
+                                        document.getElementById("preview").setAttribute("src",event.target.result);  
                                         
                                         document.getElementById("bigimg").style.visibility = "hidden";
                                         document.getElementById("unsupimg").style.visibility = "hidden";
@@ -142,11 +149,12 @@ const Register = ({regUser}) => {
                         
                        }    >
                         
-                           <ErrorMsg id='bigimg' style={{position:"absolute",marginTop:"25%",marginLeft:"15%",zIndex:"1",
+                           <ErrorMsg id='bigimg' style={{position:"absolute",marginTop:"27%",marginLeft:"15%",zIndex:"1",
                                 visibility:"hidden",fontSize:"80%"
                             }}>
                                image too big</ErrorMsg>
-                           <ErrorMsg id='unsupimg' style={{position:"absolute",marginTop:"26%",marginLeft:"15%",zIndex:"1",
+                           <ErrorMsg id='unsupimg' style={{position:"absolute",marginTop:"27%",
+                           marginLeft:"15%",zIndex:"1",
                                 visibility:"hidden",fontSize:"80%"
                             }}>
                                unsuported image type</ErrorMsg>
@@ -157,7 +165,7 @@ const Register = ({regUser}) => {
                            placeholder="nama mahasiswa"
                            icon={<FiMail/>}/>
 
-                            <div style={{position:"absolute",marginLeft:"25rem"}}>
+                            <div style={{position:"absolute",marginLeft:"25rem",visibility:"hidden"}}>
                             <TextInput 
                            name="Foto64" 
                            type="text" 
@@ -171,7 +179,10 @@ const Register = ({regUser}) => {
                            name="NIM" 
                            type="number" 
                            label="Nomor Induk Mahasiswa"
-                           placeholder="nomor induk mahasiswa   "
+                           placeholder="nomor induk mahasiswa"
+                           onKeyDown={ 
+                            (evt) => evt.key === 'e' && evt.preventDefault()
+                           ||evt.key === '.' && evt.preventDefault() || evt.key === ',' && evt.preventDefault() }
                            icon={<FiMail/>}/>
                            
                            
@@ -194,7 +205,7 @@ const Register = ({regUser}) => {
                            name="Username" 
                            type="text" 
                            label="username"
-                           placeholder="username"
+                           placeholder="username"                                                  
                            icon={<FiMail/>}/>
 
                            <TextInput
@@ -212,13 +223,11 @@ const Register = ({regUser}) => {
                            icon={<FiLock/>}/>                            
 
                            <ButtonGroup>
-                               {!isSubmitting &&<StyledFormBtn 
+                               {!isSubmitting &&<StyledFormBtn                                
                                  type='submit'>
-                                   Register
+                               <p style={{fontSize:"80%"}}>   Register</p>
                                </StyledFormBtn> } 
-                               <ExtraText>sudah punya akun?
-                    <TextLink to="/login">login</TextLink>                    
-                               </ExtraText> 
+                               
                                                         
                 {isSubmitting && (
                     <RotatingLines
@@ -229,7 +238,9 @@ const Register = ({regUser}) => {
                     />                    
                 )}    
                            </ButtonGroup>
-
+                           <ExtraText >sudah punya akun?
+                    <TextLink to="/login">login</TextLink>                    
+                               </ExtraText> 
                         </Form>
                     )}
                 </Formik>
