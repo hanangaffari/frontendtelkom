@@ -16,7 +16,7 @@ import Logo from './../asset/favicon.png'
 //formik
 import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
-import {FiMail, FiLock} from 'react-icons/fi';
+import {AiFillLock} from 'react-icons/ai';
 import {BsPersonFill} from 'react-icons/bs';
 import * as Yup from 'yup';
 import {Bars} from 'react-loader-spinner';
@@ -71,7 +71,7 @@ const Login = ({LoginUser}) => {
                            type="password" 
                            label="Password"
                            placeholder="password"
-                           icon={<FiLock/>}/>                           
+                           icon={<AiFillLock/>}/>                           
 
                            <ButtonGroup>
                                {!isSubmitting &&<StyledFormBtn 

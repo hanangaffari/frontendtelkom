@@ -18,7 +18,8 @@ import Logo from './../asset/favicon.png'
 import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
 
-import {FiMail, FiLock} from 'react-icons/fi';
+import {RiLockPasswordFill} from 'react-icons/ri';
+import {RiLockPasswordLine} from 'react-icons/ri';
 import {AiOutlineUser} from 'react-icons/ai';
 import {BsBookmarkCheck} from 'react-icons/bs'
 import {BiUserPin} from 'react-icons/bi'
@@ -218,14 +219,14 @@ const Register = ({regUser}) => {
                            type="password" 
                            label="password"
                            placeholder="password"
-                           icon={<FiLock/>}/>
+                           icon={<RiLockPasswordLine/>}/>
 
                            <TextInput
                            name="repeatpassword" 
                            type="password" 
                            label="repeat password"
                            placeholder="repeat password"
-                           icon={<FiLock/>}/>                            
+                           icon={<RiLockPasswordFill/>}/>                            
 
                            <ButtonGroup>
                                {!isSubmitting &&<StyledFormBtn                                
