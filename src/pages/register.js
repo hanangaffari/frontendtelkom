@@ -57,7 +57,7 @@ const Register = ({regUser}) => {
                 validationSchema={
                     Yup.object({
                         NamaMahasiswa: Yup.string()
-                        .required("tidak bisa kosong").max(30).matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
+                        .required("tidak bisa kosong").max(30,'maksimal 30 huruf').matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
                         .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar'),
                         Username: Yup.string()
                         .required("tidak bisa kosong").matches(/^[a-z\s]+$/, "Hanya huruf kecil yang diperbolehkan untuk kolom ini"),
@@ -67,7 +67,7 @@ const Register = ({regUser}) => {
                         .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar')
                         .matches(/^(?=.*[0-9])/, 'Harus mengandung setidaknya satu nomor')
                         .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Harus mengandung setidaknya satu karakter khusus'),
-                        NIM: Yup.string().required("tidak bisa kosong").max(10),
+                        NIM: Yup.string().required("tidak bisa kosong").max(10,'maksimal 10 angka'),
                         repeatpassword: Yup.string().required("tidak bisa kosong").
                         oneOf([Yup.ref("Password")],"Password tidak sama"),
                         FotoMahasiswa: Yup.mixed().required("tidak bisa kosong"),
