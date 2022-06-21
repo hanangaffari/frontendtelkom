@@ -17,6 +17,7 @@ import Logo from './../asset/favicon.png'
 import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
 import {FiMail, FiLock} from 'react-icons/fi';
+import {BsPersonFill} from 'react-icons/bs';
 import * as Yup from 'yup';
 import {Bars} from 'react-loader-spinner';
 //auth
@@ -63,7 +64,7 @@ const Login = ({LoginUser}) => {
                            type="text" 
                            label="Username"
                            placeholder="Username"
-                           icon={<FiMail/>}/>
+                           icon={<BsPersonFill/>}/>
 
                            <TextInput
                            name="Password" 

@@ -17,7 +17,12 @@ import Logo from './../asset/favicon.png'
 //formik
 import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
+
 import {FiMail, FiLock} from 'react-icons/fi';
+import {AiOutlineUser} from 'react-icons/ai';
+import {BsBookmarkCheck} from 'react-icons/bs'
+import {BiUserPin} from 'react-icons/bi'
+
 import {AiOutlinePlusSquare} from 'react-icons/ai';
 import * as Yup from 'yup';
 import {Bars} from 'react-loader-spinner';
@@ -163,7 +168,7 @@ const Register = ({regUser}) => {
                            type="text" 
                            label="nama mahasiswa"
                            placeholder="nama mahasiswa"
-                           icon={<FiMail/>}/>
+                           icon={<AiOutlineUser/>}/>
 
                             <div style={{position:"absolute",marginLeft:"25rem",visibility:"hidden"}}>
                             <TextInput 
@@ -183,7 +188,7 @@ const Register = ({regUser}) => {
                            onKeyDown={ 
                             (evt) => evt.key === 'e' && evt.preventDefault()
                            ||evt.key === '.' && evt.preventDefault() || evt.key === ',' && evt.preventDefault() }
-                           icon={<FiMail/>}/>
+                           icon={<BsBookmarkCheck/>}/>
                            
                            
                                 <TextInput
@@ -206,7 +211,7 @@ const Register = ({regUser}) => {
                            type="text" 
                            label="username"
                            placeholder="username"                                                  
-                           icon={<FiMail/>}/>
+                           icon={<BiUserPin/>}/>
 
                            <TextInput
                            name="Password" 
