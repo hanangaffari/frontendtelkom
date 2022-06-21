@@ -18,7 +18,7 @@ import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
 import {FiMail, FiLock} from 'react-icons/fi';
 import * as Yup from 'yup';
-import {RotatingLines} from 'react-loader-spinner';
+import {Bars} from 'react-loader-spinner';
 //auth
 import { connect } from 'react-redux';
 import { LoginUser } from '../auth/actions/userAction';
@@ -35,7 +35,7 @@ const Login = ({LoginUser}) => {
             <Bgr>
             <StyledForm style={{width:"100%"}}>
                 <Avatar image={Logo}></Avatar>
-                <StyledTitle color={colors.theme} size={30}>login</StyledTitle>
+                <StyledTitle color={colors.red} size={30}>login</StyledTitle>
                 
                 <Formik 
                 initialValues={{
@@ -82,14 +82,17 @@ const Login = ({LoginUser}) => {
                                     style={{position:"absolute",marginLeft:'67%'}}>
                                 daftar
                 </StyledRegBtn>
-                {isSubmitting && (
-                    <RotatingLines
+                
+             
+                    {isSubmitting && ( <Bars
                     
                     color= {colors.red}
                     height={49}
                     width={100}
-                    />                    
-                )}    
+                    />                
+                    )}    
+              
+                
                            </ButtonGroup>
 
                         </Form>

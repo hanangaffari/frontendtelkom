@@ -211,7 +211,7 @@ margin-top:5%;
 
 export const TextLink = styled(Link)`
 text-decoration:none;
-color : ${colors.theme};
+color : ${colors.red};
 transition: ease-in-out 0.3s;
 
 &:hover{

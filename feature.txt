@@ -1,0 +1,31 @@
+==feature login yang secure
+-gk bisa pindah ke dashboard
+-feature pemberitahuan kredensial yang salah
+-inputan required 
+-
+
+==feature register yg secure
+-tunjukan fitur validasi 
+-kosongkan dan tunjukan fitur required
+-tunjukan fitur image
+-gk bisa pindah ke dashboard
+
+==database dan backend mongodb secara singkat
+-mongodb terhubung ke side server
+-dan side server telah terdeploy ke heroku
+
+==tunjukan cara register bekerja
+-data terinput ke inputan
+-klik register
+-dan masuk ke dashboard dengan data telah terdisplay
+-penjelasan data dari inputan register masuk ke side server dan terupload masuk ke mongodb
+
+==tunjukan cara login bekerja
+-data terinput ke inputan
+-klik login
+-masuk ke dashboard dengan data 
+-penjelasan data login terautentikasi ke side server dan terkonek ke akun yang ada di mongodb
+
+==tunjukan lebih banyak tentang side server 
+-mongoose schema
+-cors option

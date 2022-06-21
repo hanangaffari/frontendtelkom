@@ -20,7 +20,7 @@ import { TextInput } from '../component/FormLib';
 import {FiMail, FiLock} from 'react-icons/fi';
 import {AiOutlinePlusSquare} from 'react-icons/ai';
 import * as Yup from 'yup';
-import {RotatingLines} from 'react-loader-spinner';
+import {Bars} from 'react-loader-spinner';
 
 //auth
 import { connect } from 'react-redux';
@@ -39,7 +39,7 @@ const Register = ({regUser}) => {
             <Bgr style={{width:"50%",marginLeft:"25%",height:"100%"}}>
             <StyledForm style={{width:"100%",padding:"10%"}}>
                 <Avatar image={Logo}></Avatar>
-                <StyledTitle color={colors.theme} size={30}>
+                <StyledTitle color={colors.red} size={30}>
                     daftar</StyledTitle>
     
                 <Formik 
@@ -57,20 +57,20 @@ const Register = ({regUser}) => {
                 validationSchema={
                     Yup.object({
                         NamaMahasiswa: Yup.string()
-                        .required("required").max(30).matches(/^(?=.*[a-z])/, 'Must contain at least one lowercase character')
-                        .matches(/^(?=.*[A-Z])/, 'Must contain at least one uppercase character'),
+                        .required("tidak bisa kosong").max(30).matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
+                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar'),
                         Username: Yup.string()
-                        .required("required").matches(/^[a-z\s]+$/, "Only lowercase are allowed for this field "),
-                        Password : Yup.string().min(8, "password is too short")
-                        .required("required")
-                        .matches(/^(?=.*[a-z])/, 'Must contain at least one lowercase character')
-                        .matches(/^(?=.*[A-Z])/, 'Must contain at least one uppercase character')
-                        .matches(/^(?=.*[0-9])/, 'Must contain at least one number')
-                        .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Must contain at least one special character'),
-                        NIM: Yup.string().required("Required").max(10),
-                        repeatpassword: Yup.string().required("Required").
+                        .required("tidak bisa kosong").matches(/^[a-z\s]+$/, "Hanya huruf kecil yang diperbolehkan untuk kolom ini"),
+                        Password : Yup.string().min(8, "kata sandi terlalu pendek")
+                        .required("tidak bisa kosong")
+                        .matches(/^(?=.*[a-z])/, 'Harus mengandung setidaknya satu karakter huruf kecil')
+                        .matches(/^(?=.*[A-Z])/, 'Harus mengandung setidaknya satu karakter huruf Besar')
+                        .matches(/^(?=.*[0-9])/, 'Harus mengandung setidaknya satu nomor')
+                        .matches(/^(?=.*[!@#\$%\^&\_=()*])/, 'Harus mengandung setidaknya satu karakter khusus'),
+                        NIM: Yup.string().required("tidak bisa kosong").max(10),
+                        repeatpassword: Yup.string().required("tidak bisa kosong").
                         oneOf([Yup.ref("Password")],"Password tidak sama"),
-                        FotoMahasiswa: Yup.mixed().required(),
+                        FotoMahasiswa: Yup.mixed().required("tidak bisa kosong"),
                         Foto64 : Yup.string(),                       
                     })
                 }
@@ -225,12 +225,12 @@ const Register = ({regUser}) => {
                            <ButtonGroup>
                                {!isSubmitting &&<StyledFormBtn                                
                                  type='submit'>
-                               <p style={{fontSize:"80%"}}>   Register</p>
+                               <p style={{fontSize:"80%"}}>   Daftar</p>
                                </StyledFormBtn> } 
                                
                                                         
                 {isSubmitting && (
-                    <RotatingLines
+                    <Bars
                  
                     color= {colors.red}
                     height={49}

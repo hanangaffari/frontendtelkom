@@ -46,7 +46,7 @@ const Dashboard = ({logoutUser,user}) => {
                     <Avatar image={Logo}></Avatar>
                 </div>
                 <StyledForm bg={colors.dark2}>
-                <StyledTitle size={65}>test</StyledTitle>
+                <StyledTitle size={65}>Welcome to Telkom-university</StyledTitle>
                 <StyledTitle2 size={27}>
                    {user.Username}                   
                 </StyledTitle2>

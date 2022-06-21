@@ -28,10 +28,10 @@ credentials,{
 const {message} = data;
 
         //chehck error
-        if(message.includes("credential")){
+        if(message.includes("kredensial")){
             setFieldError("Username",message);
             setFieldError("Password",message)
-        }else if(message.includes("password")){
+        }else if(message.includes("kata")){
             setFieldError("Password",message)
         }
     }else if(data.status === "SUCCESS"){
