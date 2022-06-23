@@ -1,7 +1,7 @@
 import { StyledTitle,StyledTitle2 ,Avatar,StyledButton,ButtonGroup} from "./../component/style";
 
 //logo
-import Logo from "./../asset/favicon.png"
+import Logo from './../asset/Telkom.png'
 const home = () => {
     return(
         <div>
@@ -11,7 +11,8 @@ const home = () => {
                 backgroundColor: "transparent",
                 width:"100%",                
                 display: "flex",
-                justifyContent:"flex-start"
+                justifyContent:"flex-start",
+                paddingTop:"8%"
             }}>
                 <Avatar image={Logo}></Avatar>
             </div>

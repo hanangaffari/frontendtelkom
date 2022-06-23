@@ -12,7 +12,7 @@ ExtraText
 } 
     from './../component/style'
 
-import Logo from './../asset/favicon.png'
+import Logo from './../asset/Telkom.png'
 //formik
 import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
@@ -47,7 +47,7 @@ const Login = ({LoginUser}) => {
                     Yup.object({
                         Username: Yup.string()
                         .required("required"),
-                        Password : Yup.string().min(8, "password is too short").max(30,"password is too long")
+                        Password : Yup.string().min(8, "password terlalu pendek").max(30,"password terlalu panjang")
                         .required("required"),
                     })
                 }

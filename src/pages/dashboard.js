@@ -13,7 +13,7 @@ import {
 import React from "react";
 
 //logo
-import Logo from "./../asset/favicon.png"
+import Logo from './../asset/Telkom.png'
 
 //redux connect
 import { connect } from 'react-redux';

@@ -13,7 +13,7 @@ ErrorMsg
 } 
     from './../component/style'
 
-import Logo from './../asset/favicon.png'
+    import Logo from './../asset/Telkom.png';
 //formik
 import { Formik, Form } from 'formik';
 import { TextInput } from '../component/FormLib';
