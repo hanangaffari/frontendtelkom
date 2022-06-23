@@ -46,9 +46,9 @@ const Login = ({LoginUser}) => {
                 validationSchema={
                     Yup.object({
                         Username: Yup.string()
-                        .required("required"),
+                        .required("tidak bisa kosong"),
                         Password : Yup.string().min(8, "password terlalu pendek").max(30,"password terlalu panjang")
-                        .required("required"),
+                        .required("tidak bisa kosong"),
                     })
                 }
                 onSubmit={(values,{setSubmitting,setFieldError}) => {
