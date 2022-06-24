@@ -1,8 +1,0 @@
-  23/06/2022 00:04:57: Starting composition “bandicam 2022-06-21 21-50-00-515”.
-
-  Output To: E:\webdevelopment\frontendtelkom\bandicam 2022-06-21 21-50-00-515_1.avi    23/06/2022 00:16:58: Finished composition “bandicam 2022-06-21 21-50-00-515”.
-
-
-  Total Time Elapsed: 11 Min, 59 Sec
-Log closed on 23/06/2022 at 00:16:58
-
